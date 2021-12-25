@@ -94,6 +94,7 @@ const ActionButton = tw.div`
   transform
   hover:scale-105
   transition
+  cursor-pointer
 `
 
 const ActionButtonImage = tw.img`
