@@ -20,8 +20,8 @@ const Search = () => {
         </FromToIcons>
 
         <InputBoxes>
-          <Input placeholder='Enter Pickup Location'/>
-          <Input placeholder='Where to?'/>
+          <Input placeholder='Enter Pickup Location' />
+          <Input placeholder='Where to?' />
         </InputBoxes>
 
         <PlusIcon src="https://img.icons8.com/ios/50/000000/plus-math.png" />
@@ -34,9 +34,11 @@ const Search = () => {
       </SavedPlaces>
 
       {/* Confirm Location */}
-      <ConfirmButtonContainer>
-        Confirm Locations
-      </ConfirmButtonContainer>
+      <Link href="/confirm">
+        <ConfirmButtonContainer>
+          Confirm Locations
+        </ConfirmButtonContainer>
+      </Link>
     </Wrapper>
   )
 }
