@@ -34,9 +34,9 @@ const Search = () => {
       </SavedPlaces>
 
       {/* Confirm Location */}
-      <ConfirmLocationButton>
-        Confirm Location
-      </ConfirmLocationButton>
+      <ConfirmButtonContainer>
+        Confirm Locations
+      </ConfirmButtonContainer>
     </Wrapper>
   )
 }
@@ -129,18 +129,13 @@ const StarIcon = tw.img`
   rounded-full
   mr-2
 `
-const ConfirmLocationButton = tw.div`
+const ConfirmButtonContainer = tw.div`
   bg-black
   text-white
-  flex
-  justify-center
-  items-center
-  mx-2
+  text-center
+  mx-4
   px-4
   py-3
   text-2xl
   cursor-pointer
-  transform
-  hover:scale-95
-  transition
 `
