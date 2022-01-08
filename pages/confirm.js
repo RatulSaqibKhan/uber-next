@@ -43,12 +43,13 @@ const Confirm = () => {
 
   return (
     <Wrapper>
-      <Map />
+      <Map 
+        pickupCoordinates={pickupCoordinates}
+        dropoffCoordinates={dropoffCoordinates}
+      />
       <RideContainer>
         {/* Ride Selector */}
         {/* Confirm Button */}
-        {pickupCoordinates}
-        {dropoffCoordinates}
       </RideContainer>
     </Wrapper>
   )
