@@ -1,7 +1,12 @@
 import Link from "next/link"
 import tw from "tailwind-styled-components"
+import { useState } from "react";
 
 const Search = () => {
+
+  const [pickup, setPickup] = useState("");
+  const [dropoff, setDropoff] = useState("");
+
   return (
     <Wrapper>
       {/* Button Container */}
@@ -20,8 +25,8 @@ const Search = () => {
         </FromToIcons>
 
         <InputBoxes>
-          <Input placeholder='Enter Pickup Location' />
-          <Input placeholder='Where to?' />
+          <Input placeholder='Enter Pickup Location' value={pickup} onChange={(e) => setPickup(e.target.value)}/>
+          <Input placeholder='Where to?' value={dropoff} onChange={(e) => setDropoff(e.target.value)}/>
         </InputBoxes>
 
         <PlusIcon src="https://img.icons8.com/ios/50/000000/plus-math.png" />
@@ -34,7 +39,13 @@ const Search = () => {
       </SavedPlaces>
 
       {/* Confirm Location */}
-      <Link href="/confirm">
+      <Link href={{
+          pathname: "/confirm",
+          query: {
+            pickup: pickup,
+            dropoff: dropoff
+          }
+        }}>
         <ConfirmButtonContainer>
           Confirm Locations
         </ConfirmButtonContainer>

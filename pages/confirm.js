@@ -1,14 +1,16 @@
 import tw from "tailwind-styled-components"
 import Map from "./components/map"
 import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
 const Confirm = () => {
+  const router = useRouter();
+  const { pickup, dropoff } = router.query
 
   const [ pickupCoordinates, setPickupCoordinates ] = useState()
   const [ dropoffCoordinates, setDropoffCoordinates ] = useState()
 
-  const getPickupCoordinates = () => {
-    const pickup = "Farmgate, Dhaka";
+  const getPickupCoordinates = (pickup) => {
     fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${pickup}.json?` +
       new URLSearchParams({
         access_token: "pk.eyJ1IjoicmF0dWxzYXFpYmtoYW4iLCJhIjoiY2t4amNrYTA0MDU1YzJ4b2J4NTVpcm1hZSJ9.mlsD20BdC9D85DZ6D3cy_g",
@@ -21,8 +23,7 @@ const Confirm = () => {
     })
   }
 
-  const getDropOffCoordinates = () => {
-    const dropoff = "Airport, Dhaka";
+  const getDropOffCoordinates = (dropoff) => {
     fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${dropoff}.json?` +
       new URLSearchParams({
         access_token: "pk.eyJ1IjoicmF0dWxzYXFpYmtoYW4iLCJhIjoiY2t4amNrYTA0MDU1YzJ4b2J4NTVpcm1hZSJ9.mlsD20BdC9D85DZ6D3cy_g",
@@ -36,9 +37,9 @@ const Confirm = () => {
   }
 
   useEffect(() => {
-    getPickupCoordinates();
-    getDropOffCoordinates();
-  }, [])
+    getPickupCoordinates(pickup);
+    getDropOffCoordinates(dropoff);
+  }, [pickup, dropoff])
 
 
   return (
