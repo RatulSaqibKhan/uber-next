@@ -72,6 +72,7 @@ const RideContainer = tw.div`
   flex
   flex-col
   flex-1
+  h-1/2
 `
 
 const ConfirmButtonContainer = tw.div`
